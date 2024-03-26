@@ -277,6 +277,16 @@ class IconViewerState extends State<IconViewer> with TickerProviderStateMixin {
   }
 
   @override
+  void didUpdateWidget(covariant IconViewer oldWidget) {
+    if (oldWidget.colorize != widget.colorize) {
+      setState(() {
+        _colorize = widget.colorize;
+      });
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
 
